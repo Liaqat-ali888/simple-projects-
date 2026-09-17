@@ -37,8 +37,8 @@ class EmergencyHospita{
   		front = newPatient;
   		return;
   	}
-  	newPatient.next = rear;
-  	rear = newPatient;
+    rear.next = newPatient;
+  	  rear  = newPatient;
 
   }
 
@@ -47,6 +47,7 @@ class EmergencyHospita{
 Node cur = front;
    while(cur!= null){
    	cur.patient.display();
+   	System.out.println("\n======================");
    	cur = cur.next;
    }
 
@@ -60,8 +61,9 @@ class main{
 	public static void main(String arg[]){
 		EmergencyHospita list = new EmergencyHospita();
 
-Scanner input = new Scanner(System.in);
-int b;
+    Scanner input = new Scanner(System.in);
+ int choice;
+ do{
 System.out.println("\n\t==== Emergency Hospital System === ");
 System.out.println("\n\t1. Add Patient");
 System.out.println("\n\t2. Call Next Patient");
@@ -69,37 +71,35 @@ System.out.println("\n\t3. View Waiting Patients");
 System.out.println("\n\t4. View Total Waiting Patients");
 System.out.println("\n\t5. Exit");
 System.out.println("\n Enter any key!!");
-b = input.nextInt();
+choice = input.nextInt();
 
-int a;
-
-int P_id;
-String P_name;
-int P_age;
-String Reason_for_visit;
-if(b==1){
+if(choice == 1){
 	System.out.println("== Welcome to Add Patient Portal ==");
 	System.out.println("S.No: ");
-	a = input.nextInt();
+  int	a = input.nextInt();
 	System.out.println("Enter Patient ID: ");
-	P_id = input.nextInt();
-	   input.nextLine();
+	int P_id = input.nextInt();
+	  input.nextLine();
 	System.out.println("Enter Patient Name: ");
-	P_name = input.nextLine();
+	String P_name = input.nextLine();
 	System.out.println("Patient Age: ");
-	P_age = input.nextInt();
+	int P_age = input.nextInt();
 	input.nextLine();
 	System.out.println("Reason for visit: ");
-	Reason_for_visit = input.nextLine();
+	String Reason_for_visit = input.nextLine();
 Patient p = new Patient(a,P_id,P_name,P_age,Reason_for_visit);
 list.Add(p);
-return;
 }
-if(b== 2){
-	list.displays();
-	return;
+else if(choice== 2){
+
+
+}
+else{
+	System.out.println("invalid");
 }
 
 
 	}
-}
+	while(choice!=3);
+	input.close();
+}}
